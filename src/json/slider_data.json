@@ -1,0 +1,16 @@
+[
+    {
+      "id": 0,
+      "text": " You can limit the size of your e.ensure",
+      "image": "https://cdn.pixabay.com/photo/2019/07/28/14/03/salento-4368775_960_720.jpg"
+    },
+    {
+      "id": 1,
+      "text": "bundles by using import() or requir",
+      "image": "https://cdn.pixabay.com/photo/2018/04/01/08/45/off-road-3280241_960_720.jpg"
+    },{
+      "id": 2,
+      "text": "Bla Bla Bla Bla",
+      "image": "https://cdn.pixabay.com/photo/2018/05/13/19/54/off-road-3397640_960_720.jpg"
+    }
+]
