@@ -6,3 +6,6 @@ $white: #edf0f1;
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
 }
+@function rem($size) {
+  @return $size / 16px * 1rem;
+}

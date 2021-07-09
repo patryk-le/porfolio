@@ -4,6 +4,7 @@ import parallax from "./parallax.html";
 import slider from "./slider.html";
 import scroll from "./scroll_button.html";
 import json from "./json/slider_data.json";
+import myphoto from "./myphoto.html";
 
 interface Slide {
   id: number;
@@ -15,17 +16,18 @@ window.onload = function () {
   const translate = document.querySelectorAll<HTMLElement>(".translate");
   const radioBtn = document.querySelectorAll<HTMLElement>(".manual-btn");
   const scrollBtn = document.querySelectorAll<HTMLElement>(".scroll-down")[0];
-  
-  const sliderc = document.querySelectorAll<HTMLElement>(".slider_component")[0];
+
+  const sliderc =
+    document.querySelectorAll<HTMLElement>(".slider_component")[0];
   const navBtn = document.getElementById("nav_show");
-  navBtn.addEventListener("click", ()=>{
+  navBtn.addEventListener("click", () => {
     var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-  })
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  });
   set_checked(0);
   console.log(typeof radioBtn);
   const images = document.querySelector(".slide img");
@@ -33,21 +35,20 @@ window.onload = function () {
   const width = style.width;
   scrollBtn.addEventListener("click", () => {
     window.scrollTo(0, 420);
- 
-    var op = 0.1;  // initial opacity
-    sliderc.style.display = 'block';
-    var timer = setInterval(function () {
-        if (op >= 1){
-            clearInterval(timer);
-        }
-        sliderc.style.opacity = `${op}`;
-        sliderc.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op += op * 0.1;
-    }, 10);
 
+    var op = 0.1; // initial opacity
+    sliderc.style.display = "block";
+    var timer = setInterval(function () {
+      if (op >= 1) {
+        clearInterval(timer);
+      }
+      sliderc.style.opacity = `${op}`;
+      sliderc.style.filter = "alpha(opacity=" + op * 100 + ")";
+      op += op * 0.1;
+    }, 10);
   });
 
-  radioBtn.forEach(function (value, i) {
+  radioBtn.forEach((value, i) => {
     console.log(typeof value);
     console.log(i);
     value.addEventListener("click", () => {
@@ -67,7 +68,7 @@ window.onload = function () {
     });
   });
   var counter = 0;
-  setInterval(function () {
+  setInterval(() => {
     const element = document.getElementById("first");
     set_checked(counter);
     element.animate(
@@ -126,6 +127,12 @@ function parallax_component() {
 
   return element;
 }
+function myphoto_component() {
+  const element = document.createElement("div");
+  element.classList.add("myphoto");
+  element.innerHTML = myphoto;
+  return element;
+}
 function slider_component() {
   let element = document.createElement("div");
   element.classList.add("slider_component");
@@ -152,11 +159,11 @@ function slider_component() {
 function scroll_component() {
   const element = document.createElement("div");
   element.classList.add("scroll_component");
-  element.innerHTML = scroll;
-
+  element.innerHTML += scroll;
   return element;
 }
 document.body.appendChild(navbar_component());
 document.body.appendChild(parallax_component());
 document.body.appendChild(slider_component());
+document.body.appendChild(myphoto_component());
 document.body.appendChild(scroll_component());
