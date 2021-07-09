@@ -1,0 +1,11 @@
+$slider-width: 400px;
+$slider-height: 250px;
+$primary: #0088a9;
+$white: #edf0f1;
+@mixin setFont {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+@function rem($size) {
+  @return $size / 16px * 1rem;
+}
