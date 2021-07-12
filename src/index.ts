@@ -15,7 +15,6 @@ interface Slide {
 window.onload = function () {
   const translate = document.querySelectorAll<HTMLElement>(".translate");
   const radioBtn = document.querySelectorAll<HTMLElement>(".manual-btn");
-  const scrollBtn = document.querySelectorAll<HTMLElement>(".scroll-down")[0];
 
   const sliderc =
     document.querySelectorAll<HTMLElement>(".slider_component")[0];
@@ -33,20 +32,6 @@ window.onload = function () {
   const images = document.querySelector(".slide img");
   const style = getComputedStyle(images);
   const width = style.width;
-  scrollBtn.addEventListener("click", () => {
-    window.scrollTo(0, 420);
-
-    var op = 0.1; // initial opacity
-    sliderc.style.display = "block";
-    var timer = setInterval(function () {
-      if (op >= 1) {
-        clearInterval(timer);
-      }
-      sliderc.style.opacity = `${op}`;
-      sliderc.style.filter = "alpha(opacity=" + op * 100 + ")";
-      op += op * 0.1;
-    }, 10);
-  });
 
   radioBtn.forEach((value, i) => {
     console.log(typeof value);
@@ -163,7 +148,6 @@ function scroll_component() {
   return element;
 }
 document.body.appendChild(navbar_component());
-document.body.appendChild(parallax_component());
-document.body.appendChild(slider_component());
+
 document.body.appendChild(myphoto_component());
-document.body.appendChild(scroll_component());
+document.body.appendChild(slider_component());

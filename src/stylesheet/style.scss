@@ -22,11 +22,35 @@ html {
 .stxt {
   color: $white;
 }
+.photo-text-wrapper{
+  width:100%;
+}
+.img-info{
+  width:100%;
+}
+.img-info h2, .tech-info h3{
+  padding: 30px 30px 20px;
+  color:$white;
+  line-height: 44px;
+}
+.img-info p, .tech-info p{
+  padding: 0px 30px 20px;
+  color:$white;
+  line-height: 24px;
+}
+
+.img-me{
+  width:100%
+}
+
+
 .navbar {
   z-index: 2;
   top: 0;
   width: 100vw;
-  position: fixed;
+  border-bottom: solid 2px transparent;
+  border-image: linear-gradient(to right, $white, $primary);
+  border-image-slice: 1;
 }
 li,
 a,
@@ -88,8 +112,9 @@ header {
 }
 body {
   overflow-x: hidden;
-  background: black;
-  height: 5000px;
+  background: $background;
+
+ 
 }
 #m3 {
   position: absolute;
@@ -108,11 +133,13 @@ body {
   margin: auto;
   width: $slider-width;
   height: $slider-height;
-  border-radius: 10px;
   overflow: hidden;
 }
 .slider-text {
   width: 100%;
+}
+.circle-1 img{
+  width:200px
 }
 .stxt {
   width: $slider-width;
@@ -120,7 +147,6 @@ body {
   bottom: 0;
   padding: 10px;
   background: #00000078;
-  border-radius: 0 0 10px 10px;
   position: absolute;
 }
 .slides-wrap {
@@ -208,7 +234,7 @@ body {
   /* animation: scroll-down 1s ease-in-out infinite; */
 }
 .slider_component {
-  display: none;
+
 }
 @keyframes scroll-down {
   0% {
@@ -226,11 +252,49 @@ body {
     opacity: 0;
   }
 }
+.myphoto{
+  background: #363636;
+}
 .topnav {
   overflow: hidden;
 }
 .icon {
   display: none;
+}
+
+@media only screen and (min-width: 1000px) {
+  .photo-text-wrapper{
+    width:1000px;
+    margin: 0 auto;
+    padding: 30px 0 30px 0;
+    overflow: hidden;
+  }
+  .slider_component{
+    padding: 30px 0 30px 0;
+    width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .nav-wrap{
+    position:relative;
+   
+  }
+  .slider{
+    width:50%;
+    float:left
+  }
+  .tech-info{
+    width:50%;
+    float:right;
+  }
+  .img-info{
+    width:50%;
+    float:left;
+  }
+  .img-me{
+    width:50%;
+    float:right;
+  }
 }
 @media screen and (max-width: 652px) {
   .topnav a {
@@ -244,6 +308,7 @@ body {
 
 @media screen and (max-width: 652px) {
   .topnav.responsive {
+    padding-top:5px;
     position: relative;
   }
   .topnav.responsive .icon {
