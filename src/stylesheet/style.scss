@@ -49,7 +49,7 @@ html {
   top: 0;
   width: 100vw;
   border-bottom: solid 2px transparent;
-  border-image: linear-gradient(to right, $white, $primary);
+  border-image: linear-gradient(to right, $primary, $secondary, $tertiary);
   border-image-slice: 1;
 }
 li,
@@ -83,14 +83,16 @@ button {
 button {
   margin-left: 20px;
   padding: 9px 25px;
-  background-color: rgba(0, 136, 169, 1);
-  border: none;
-  border-radius: 50px;
+  background-color: rgba(0, 136, 169, 0);
+  border: 1px solid transparent;
+  border-image: linear-gradient(to right, $primary, $secondary, $tertiary);
+  border-image-slice: 1;
   cursor: pointer;
   transition: all 0.3s ease 0s;
 }
 button:hover {
-  background-color: rgba(0, 136, 169, 0.8);
+  background-image: linear-gradient(to right, $primary, $secondary, $tertiary);
+  
 }
 header {
   display: flex;
@@ -113,7 +115,6 @@ header {
 body {
   overflow-x: hidden;
   background: $background;
-
  
 }
 #m3 {
@@ -257,6 +258,13 @@ body {
 }
 .topnav {
   overflow: hidden;
+}
+.topnav .a:hover{
+  background-clip: border-box;
+  background: -webkit-linear-gradient(right, $primary, $secondary, $tertiary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
 }
 .icon {
   display: none;

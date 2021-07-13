@@ -1,16 +1,16 @@
 [
     {
       "id": 0,
-      "text": " You can limit the size of your e.ensure",
-      "image": "https://cdn.pixabay.com/photo/2019/07/28/14/03/salento-4368775_960_720.jpg"
+      "text": " Javascript",
+      "image": "https://www.pozycjonusz.pl/wp-content/uploads/2019/05/java-script-SEO.jpg"
     },
     {
       "id": 1,
-      "text": "bundles by using import() or requir",
-      "image": "https://cdn.pixabay.com/photo/2018/04/01/08/45/off-road-3280241_960_720.jpg"
+      "text": "React.JS",
+      "image": "https://analyticsindiamag.com/wp-content/uploads/2021/01/pasted-image-0-2.png"
     },{
       "id": 2,
-      "text": "Bla Bla Bla Bla",
-      "image": "https://cdn.pixabay.com/photo/2018/05/13/19/54/off-road-3397640_960_720.jpg"
+      "text": "Angular",
+      "image": "https://images.indepth.dev/images/2021/03/View-State-Selector----Angular-design-pattern.jpg"
     }
 ]

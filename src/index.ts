@@ -7,11 +7,15 @@ import json from "./json/slider_data.json";
 import myphoto from "./myphoto.html";
 
 interface Slide {
-  id: number;
   text: string;
   image: string;
 }
-
+var width = "";
+window.addEventListener('resize', (event) => {
+  const images = document.querySelector(".slide img");
+  const style = getComputedStyle(images);
+  width = style.width;
+}, true);
 window.onload = function () {
   const translate = document.querySelectorAll<HTMLElement>(".translate");
   const radioBtn = document.querySelectorAll<HTMLElement>(".manual-btn");
@@ -31,7 +35,7 @@ window.onload = function () {
   console.log(typeof radioBtn);
   const images = document.querySelector(".slide img");
   const style = getComputedStyle(images);
-  const width = style.width;
+  width = style.width;
 
   radioBtn.forEach((value, i) => {
     console.log(typeof value);
@@ -126,18 +130,27 @@ function slider_component() {
   let slides = element.querySelectorAll<HTMLElement>(".slides")[0];
   let nav_auto = element.querySelectorAll<HTMLElement>(".navigation-auto")[0];
   let nav_manu = element.querySelectorAll<HTMLElement>(".navigation-manual")[0];
-  json.forEach((slide, i) => {
-    slides.innerHTML += `
-      <input type="radio" name="radio-btn" class="radio-btn">
-      <div class="slide">
-          <img src="${slide.image}" alt="slide"> 
-          <div class="stxt">
-            ${slide.text}
-          </div>
-      </div>`;
-    nav_auto.innerHTML += `<div class="auto-btn1"></div>`;
-    nav_manu.innerHTML += `<label for="radio${i}" class="manual-btn"></label>`;
-  });
+
+  const urlEndPoint = "http://localhost:3000/slider"
+  fetch(urlEndPoint).then(response => {
+    response.json().then(data => {
+      let count=0;
+      data.forEach((slide: Slide) => {
+        slides.innerHTML += `
+          <input type="radio" name="radio-btn" class="radio-btn">
+          <div class="slide">
+              <img src="${slide.image}" alt="slide"> 
+              <div class="stxt">
+                ${slide.text}
+              </div>
+          </div>`;
+        nav_auto.innerHTML += `<div class="auto-btn1"></div>`;
+        nav_manu.innerHTML += `<label for="radio${count}" class="manual-btn"></label>`;
+        count++;
+      });
+    })
+  })
+ 
 
   return element;
 }
