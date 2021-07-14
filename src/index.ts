@@ -2,26 +2,26 @@ import "./stylesheet/style.scss";
 import nav from "./navbar.html";
 import parallax from "./parallax.html";
 import slider from "./slider.html";
-import scroll from "./scroll_button.html";
-import json from "./json/slider_data.json";
 import myphoto from "./myphoto.html";
+import footer from "./footer.html";
 
 interface Slide {
   text: string;
   image: string;
 }
 var width = "";
-window.addEventListener('resize', (event) => {
-  const images = document.querySelector(".slide img");
-  const style = getComputedStyle(images);
-  width = style.width;
-}, true);
+window.addEventListener(
+  "resize",
+  (event) => {
+    const images = document.querySelector(".slide img");
+    const style = getComputedStyle(images);
+    width = style.width;
+  },
+  true
+);
 window.onload = function () {
-  const translate = document.querySelectorAll<HTMLElement>(".translate");
   const radioBtn = document.querySelectorAll<HTMLElement>(".manual-btn");
 
-  const sliderc =
-    document.querySelectorAll<HTMLElement>(".slider_component")[0];
   const navBtn = document.getElementById("nav_show");
   navBtn.addEventListener("click", () => {
     var x = document.getElementById("myTopnav");
@@ -32,14 +32,11 @@ window.onload = function () {
     }
   });
   set_checked(0);
-  console.log(typeof radioBtn);
   const images = document.querySelector(".slide img");
   const style = getComputedStyle(images);
   width = style.width;
 
   radioBtn.forEach((value, i) => {
-    console.log(typeof value);
-    console.log(i);
     value.addEventListener("click", () => {
       const element = document.getElementById("first");
 
@@ -75,21 +72,6 @@ window.onload = function () {
       counter = 0;
     }
   }, 3000);
-
-  radioBtn.forEach((el) => {
-    console.log(typeof el);
-  });
-  window.addEventListener("scroll", () => {
-    let scroll = window.pageYOffset;
-    if (scroll < 420) {
-      translate.forEach((element) => {
-        let speed = parseFloat(element.dataset.speed);
-        console.log(scroll);
-
-        element.style.transform = `translateY(${scroll * speed}px)`;
-      });
-    }
-  });
 };
 function set_checked(number: number) {
   const radioBtn = document.querySelectorAll<HTMLElement>(".manual-btn");
@@ -104,18 +86,18 @@ function set_checked(number: number) {
 function navbar_component() {
   const element = document.createElement("div");
   element.classList.add("navbar");
+  element.id="top";
   element.innerHTML = nav;
 
   return element;
 }
-
-function parallax_component() {
+function footer_component() {
   const element = document.createElement("div");
-  element.classList.add("parallax");
-  element.innerHTML = parallax;
-
+  element.classList.add("footer");
+  element.innerHTML = footer;
   return element;
 }
+
 function myphoto_component() {
   const element = document.createElement("div");
   element.classList.add("myphoto");
@@ -131,10 +113,10 @@ function slider_component() {
   let nav_auto = element.querySelectorAll<HTMLElement>(".navigation-auto")[0];
   let nav_manu = element.querySelectorAll<HTMLElement>(".navigation-manual")[0];
 
-  const urlEndPoint = "http://localhost:3000/slider"
-  fetch(urlEndPoint).then(response => {
-    response.json().then(data => {
-      let count=0;
+  const urlEndPoint = "http://localhost:3000/slider";
+  fetch(urlEndPoint).then((response) => {
+    response.json().then((data) => {
+      let count = 0;
       data.forEach((slide: Slide) => {
         slides.innerHTML += `
           <input type="radio" name="radio-btn" class="radio-btn">
@@ -148,19 +130,13 @@ function slider_component() {
         nav_manu.innerHTML += `<label for="radio${count}" class="manual-btn"></label>`;
         count++;
       });
-    })
-  })
- 
+    });
+  });
 
   return element;
 }
-function scroll_component() {
-  const element = document.createElement("div");
-  element.classList.add("scroll_component");
-  element.innerHTML += scroll;
-  return element;
-}
+
 document.body.appendChild(navbar_component());
-
 document.body.appendChild(myphoto_component());
 document.body.appendChild(slider_component());
+document.body.appendChild(footer_component());

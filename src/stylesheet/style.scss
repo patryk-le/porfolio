@@ -1,46 +1,89 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 @import "./variables.scss";
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   @include setFont;
 }
+
 a {
   padding: 3px;
 }
+
 h2 {
   @include setFont;
   color: $white;
 }
+
 html {
   scroll-behavior: smooth;
+}
+
+.footer {
+  background: #363636;
+  margin-top: 30px;
+  align-items: center;
+  border-top: solid 1px transparent;
+  border-image: linear-gradient(to right, $primary, $secondary, $tertiary);
+  border-image-slice: 1;
+  height: 250px;
+}
+
+.footer .bottom {
+  margin-top: auto;
+}
+
+footer .logo {
+  margin-right: 0;
+  margin-bottom: 20px;
+}
+
+footer {
+  height: 100%;
+  display: flex;
+  max-width: 1000px;
+  text-align: center;
+  padding: 30px;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+footer span {
+  color: $white;
+  line-height: 24px;
 }
 
 .stxt {
   color: $white;
 }
-.photo-text-wrapper{
-  width:100%;
+
+.photo-text-wrapper {
+  width: 100%;
 }
-.img-info{
-  width:100%;
+
+.img-info {
+  width: 100%;
 }
-.img-info h2, .tech-info h3{
+
+.img-info h2,
+.tech-info h3 {
   padding: 30px 30px 20px;
-  color:$white;
+  color: $white;
   line-height: 44px;
 }
-.img-info p, .tech-info p{
+
+.img-info p,
+.tech-info p {
   padding: 0px 30px 20px;
-  color:$white;
+  color: $white;
   line-height: 24px;
 }
 
-.img-me{
-  width:100%
+.img-me {
+  width: 100%
 }
 
 
@@ -52,6 +95,7 @@ html {
   border-image: linear-gradient(to right, $primary, $secondary, $tertiary);
   border-image-slice: 1;
 }
+
 li,
 a,
 button {
@@ -61,21 +105,26 @@ button {
   color: $white;
   text-decoration: none;
 }
+
 .logo {
   margin-right: auto;
   font-size: rem(18px);
   cursor: pointer;
 }
+
 .nav_links {
   list-style: none;
 }
+
 .nav_links li {
   display: inline-block;
   padding: 0 20px;
 }
+
 .nav_links li a {
   transition: all 0.3s ease 0s;
 }
+
 .nav_links li a:hover {
   color: $primary;
 }
@@ -90,33 +139,39 @@ button {
   cursor: pointer;
   transition: all 0.3s ease 0s;
 }
+
 button:hover {
   background-image: linear-gradient(to right, $primary, $secondary, $tertiary);
-  
+
 }
+
 header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 30px 10%;
 }
+
 #m1 {
   position: absolute;
   left: 0px;
   top: 0px;
   z-index: -1;
 }
+
 #m2 {
   position: absolute;
   left: 0px;
   top: 0px;
   z-index: -2;
 }
+
 body {
   overflow-x: hidden;
   background: $background;
- 
+
 }
+
 #m3 {
   position: absolute;
   left: 0px;
@@ -130,18 +185,22 @@ body {
   top: -250px;
   z-index: -5;
 }
+
 .slider {
   margin: auto;
   width: $slider-width;
   height: $slider-height;
   overflow: hidden;
 }
+
 .slider-text {
   width: 100%;
 }
-.circle-1 img{
-  width:200px
+
+.circle-1 img {
+  width: 200px
 }
+
 .stxt {
   width: $slider-width;
   height: 85px;
@@ -150,27 +209,33 @@ body {
   background: #00000078;
   position: absolute;
 }
+
 .slides-wrap {
   display: block;
 }
+
 .slides {
   width: 500%;
   height: $slider-height;
   display: flex;
 }
+
 .slides input {
   display: none;
 }
+
 .slide {
   width: 20%;
   transition: 1s;
   position: relative;
 }
+
 .slide img {
   object-fit: fill;
   width: $slider-width;
   min-height: $slider-height;
 }
+
 .navigation-manual {
   position: absolute;
   width: $slider-width;
@@ -178,6 +243,7 @@ body {
   display: flex;
   justify-content: center;
 }
+
 .nav-wrap {
   margin-top: -15px;
   color: $white;
@@ -186,6 +252,7 @@ body {
   height: 15px;
   border-radius: 0 0 10px 10px;
 }
+
 .manual-btn {
   border: 2px solid $primary;
   padding: 5px;
@@ -193,18 +260,23 @@ body {
   cursor: pointer;
   transition: 0.3s;
 }
+
 .manual-btn:not(:last-child) {
   margin-right: 40px;
 }
+
 .manual-btn:hover {
   background: $primary;
 }
+
 .slide input {
   display: none;
 }
+
 .slider_choosed {
   background: $white;
 }
+
 .scroll-down {
   height: 50px;
   width: 30px;
@@ -215,6 +287,7 @@ body {
   border-radius: 50px;
   cursor: pointer;
 }
+
 .scroll-down::before,
 .scroll-down::after {
   content: "";
@@ -229,104 +302,131 @@ body {
   border-left: transparent;
   animation: scroll-down 1s ease-in-out infinite;
 }
+
 .scroll-down::before {
   top: 30%;
   animation-delay: 0.3s;
   /* animation: scroll-down 1s ease-in-out infinite; */
 }
-.slider_component {
 
-}
 @keyframes scroll-down {
   0% {
     /* top:20%; */
     opacity: 0;
   }
+
   30% {
     opacity: 1;
   }
+
   60% {
     opacity: 1;
   }
+
   100% {
     top: 90%;
     opacity: 0;
   }
 }
-.myphoto{
+
+.myphoto {
   background: #363636;
 }
+
 .topnav {
   overflow: hidden;
 }
-.topnav .a:hover{
+
+.topnav .a:hover {
   background-clip: border-box;
   background: -webkit-linear-gradient(right, $primary, $secondary, $tertiary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  
+
 }
+
 .icon {
   display: none;
 }
 
 @media only screen and (min-width: 1000px) {
-  .photo-text-wrapper{
-    width:1000px;
+  .photo-text-wrapper {
+    width: 1000px;
     margin: 0 auto;
     padding: 30px 0 30px 0;
     overflow: hidden;
   }
-  .slider_component{
+
+  .slider_component {
     padding: 30px 0 30px 0;
     width: 1000px;
     margin: 0 auto;
     overflow: hidden;
   }
-  .nav-wrap{
-    position:relative;
-   
+
+  .nav-wrap {
+    position: relative;
+
   }
-  .slider{
-    width:50%;
-    float:left
+
+  .slider {
+    width: 50%;
+    float: left
   }
-  .tech-info{
-    width:50%;
-    float:right;
+
+  .tech-info {
+    width: 50%;
+    float: right;
   }
-  .img-info{
-    width:50%;
-    float:left;
+
+  .img-info {
+    width: 50%;
+    float: left;
   }
-  .img-me{
-    width:50%;
-    float:right;
+
+  .img-me {
+    width: 50%;
+    float: right;
   }
 }
+
 @media screen and (max-width: 652px) {
   .topnav a {
     display: none;
   }
-  .topnav a.icon {
+
+  .icon {
     float: right;
     display: block;
   }
 }
 
 @media screen and (max-width: 652px) {
+  header {
+    display: block;
+    margin-top: 5px;
+    padding: 30px 10% 20px;
+  }
+
   .topnav.responsive {
-    padding-top:5px;
+    padding-top: 10px;
     position: relative;
   }
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
+
+  .cta button {
+    margin-left: 0;
   }
+
+  .icon {
+    position: absolute;
+    right: 32px;
+    top: 32px;
+  }
+
   header {
     align-items: initial;
   }
+
   .topnav.responsive a {
     float: none;
     display: block;
